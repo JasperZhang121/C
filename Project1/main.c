@@ -199,16 +199,13 @@ a: printf("go to a\n");
 
 	printf("%d\n", one());
 	printf("%d\n", two(1,2));
-
 	for (int i = 0; i < 4; i++)
 	{
 		static int a = 10;
 		a++;
 		printf("%d\n", a);
 	}
-
 	printf("-------------------------------------------------------------- function end\n");
-
 	return 0;
 }
 

@@ -1,4 +1,5 @@
 # include <stdio.h>
+# include<string.h>
 
 // define variables using: # define
 # define pi 3.1415926
@@ -183,8 +184,44 @@ a: printf("go to a\n");
 	// char array
 	char str[10];
 	str[0] = 'a';
+	str[1] = 'e';
 	printf("%c\n", str[0]);
+	printf("%s\n", str);
 
+	char str1[10] = "aaaa";
+	char str2[10] = "aaaa";
+	printf("here\n");
+	printf("%d\n", strcmp(str1, str2));
+	printf("%d\n", strlen(str1));
 	printf("-------------------------------------------------------------- array end\n");
+
+
+
+	printf("%d\n", one());
+	printf("%d\n", two(1,2));
+
+	for (int i = 0; i < 4; i++)
+	{
+		static int a = 10;
+		a++;
+		printf("%d\n", a);
+	}
+
+	printf("-------------------------------------------------------------- function end\n");
+
 	return 0;
 }
+
+
+int one() {
+
+	return two(2,2);
+}
+
+int two(int a, int b) {
+
+	return a+b;
+}
+
+
+

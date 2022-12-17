@@ -1,6 +1,29 @@
 # include <stdio.h>
 # include<string.h>
 
+
+typedef struct Student {
+	int ID;
+	char name[10];
+	float score;
+} std;
+
+struct Student ab = { 1,"Jason",60 };
+
+union arr {
+	int ID;
+	char name[10];
+	float score;
+};
+
+
+enum arr1 {
+	left,
+	right,
+	up,
+	down
+};
+
 // define variables using: # define
 # define pi 3.1415926
 int main() {
@@ -205,7 +228,66 @@ a: printf("go to a\n");
 		a++;
 		printf("%d\n", a);
 	}
+
+	// &a: get the location of a
+	// *: define a pointer || get the value
+	a = 10;
+	b = 5;
+	&a;
+	int *x = &a;
+	fun1(&b);
+	printf("%d\n", b);
 	printf("-------------------------------------------------------------- function end\n");
+
+	std aa = { 1,"jack",70 };
+	printf("%d\n", aa.ID);
+	aa.ID = 66;
+	printf("%d\n", aa.ID);
+	printf("%d\n", sizeof(aa));
+
+	printf("-------------------------------------------------------------- struct end\n");
+
+
+	union arr as = {9};
+	//as.name = "check";
+	printf("%d\n", as.ID);
+	printf("%d\n", left);
+	printf("%d\n", up);
+	printf("%d\n", down);
+
+	printf("-------------------------------------------------------------- union & enum end\n");
+
+	int* p1 = NULL, * p2=NULL, * p3=NULL;
+
+	p1 = &a;
+	p2 = &b;
+	p3 = &c;
+	printf("%d\n", *p1);
+
+	printf("check\n");
+	printf("%d\n", sizeof(p1));
+
+
+	int arr4[10] = { 9,2,3,4 };
+	
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d\n", &arr4[i]);
+	}
+	
+	int *p4 = arr4;
+	p4 += 3;
+	printf("%d\n", *p4);
+
+	printf("check\n");
+	char * p5 = "hello world";
+	printf("%d\n", sizeof(p5));
+	printf("%d\n", strlen(p5));
+
+
+
+	printf("-------------------------------------------------------------- pointer end\n");
+
 	return 0;
 }
 
@@ -219,6 +301,12 @@ int two(int a, int b) {
 
 	return a+b;
 }
+
+int fun1(int *p1) {
+	printf("%d\n", *p1);
+	*p1 = 3;
+}
+
 
 
 

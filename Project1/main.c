@@ -285,7 +285,6 @@ a: printf("go to a\n");
 	printf("%d\n", strlen(p5));
 
 
-
 	printf("-------------------------------------------------------------- pointer end\n");
 
 	return 0;

@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include<string.h>
+# include<stdlib.h>
 
 
 typedef struct Student {
@@ -26,6 +27,9 @@ enum arr1 {
 
 // define variables using: # define
 # define pi 3.1415926
+# define FUN(a,b) {printf("%d,%d\n",a,b);} // no variable type, no return value
+# define FUN1(a,b) {printf("%d\n",a*b);}
+
 int main() {
 
 	// different types 
@@ -278,6 +282,7 @@ a: printf("go to a\n");
 	int *p4 = arr4;
 	p4 += 3;
 	printf("%d\n", *p4);
+	printf("%d\n", p4);
 
 	printf("check\n");
 	char * p5 = "hello world";
@@ -285,7 +290,62 @@ a: printf("go to a\n");
 	printf("%d\n", strlen(p5));
 
 
-	printf("-------------------------------------------------------------- pointer end\n");
+	double* p6 = (double*)&arr[0];
+	p2++;
+	printf("%d\n", *((int*)p2));
+
+
+	int arr5[3][3] = {
+		{1,2,3},
+		{4,5,6},
+		{7,8,9}
+	};
+	int(*p)[3]=arr;
+	int* p7 = &a, * p8 = &b, * p9 = &c;
+	int** pp = p;
+	
+	std studen;
+	studen.ID = 10;
+	printf("%d\n", studen.ID);
+	std* ps = &studen;
+	ps->ID = 20;
+	printf("%d\n", studen.ID);
+
+	int* p10 = (int *) malloc(100); //  100 bytes
+	*p10 = 10;
+	*(p10 + 1) = 20;
+	printf("%d\t %d\n", *p10, *(p10 + 1));
+	free(p10);
+
+	int* p11 = (int*)malloc(sizeof(int)*25);
+	for (int i = 0; i < 25;i++) {
+		*(p11 + i) = i + 1;
+
+	}
+
+	for (int i = 0; i < 25;i++) {
+		printf("%d\n", p11[i]);
+	}
+
+	memset(p11, 0, sizeof(int) * 25);
+
+	for (int i = 0; i < 25;i++) {
+		printf("%d\n", p11[i]);
+	}
+
+	printf("-------------------------------------------------------------- pointer & malloc end\n");
+
+
+	printf("%s\n", __FILE__);
+	printf("%s\n", __FUNCTION__);
+	printf("%s\n", __DATE__);
+	printf("%s\n", __TIME__);
+	printf("%d\n", __LINE__);
+	FUN(10, 10);
+	FUN1(1+2,2+1);
+
+	printf("-------------------------------------------------------------- pre end\n");
+
 
 	return 0;
 }
